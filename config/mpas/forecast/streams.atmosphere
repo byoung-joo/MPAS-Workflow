@@ -31,6 +31,18 @@
                   io_type="pnetcdf,cdf5"
                   input_interval="initial_only" />
 
+<immutable_stream name="ugwp_oro_data_in"
+                  type="input"
+                  filename_template="/glade/derecho/scratch/jjang/AirForce/UGWP/x1.40962.ugwp_oro_data.nc"
+                  input_interval="initial_only"
+                  packages="ugwp_orog_stream" />
+
+<immutable_stream name="ugwp_ngw_in"
+                  type="input"
+                  filename_template="/glade/derecho/scratch/jjang/AirForce/UGWP/ugwp_limb_tau.nc"
+                  packages="ugwp_ngw_stream"
+                  input_interval="initial_only" />
+
 <stream name="output"
         type="none"
         filename_template="history.$Y-$M-$D_$h.$m.$s.nc"
@@ -55,6 +67,15 @@
         filename_interval="none"
         input_interval="{{surfaceInputInterval}}" >
 	<file name="stream_list.atmosphere.surface"/>
+</stream>
+
+<stream name="diag_ugwp"
+        type="output"
+        filename_template="diag_ugwp.$Y-$M-$D_$h.$m.$s.nc"
+        packages="ugwp_diags_stream"
+        output_interval="6:00:00" >
+
+    <file name="stream_list.atmosphere.diag_ugwp"/>
 </stream>
 
 </streams>

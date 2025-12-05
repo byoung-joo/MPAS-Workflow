@@ -4,7 +4,7 @@
     - variable:
         name: MetaData/height
       minvalue: 0.0
-      maxvalue: 30000.0
+      maxvalue: 50000.0 #30000.0
     - variable:
         name: MetaData/earthRadiusCurvature
       minvalue: 6250000.0
@@ -13,6 +13,15 @@
         name: MetaData/geoidUndulation
       minvalue: -200.0
       maxvalue: 200.0
+  - filter: Perform Action
+    where:
+    - variable:
+        name: MetaData/height
+      minvalue: 30000.0
+      min_exclusive: true
+      maxvalue: 50000.0
+    action:
+      name: passivate   # for monitoring
   - filter: ROobserror
     filter variables:
     - name: bendingAngle
