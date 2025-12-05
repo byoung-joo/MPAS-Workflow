@@ -1,6 +1,8 @@
   obs bias:
     input file: {{biasCorrectionDir}}/satbias_amsua_metop-b.h5
     output file: {{OutDBDir}}{{MemberDir}}/satbias_amsua_metop-b.h5
+    #variables without bc: [brightnessTemperature]
+    #channels: 14 # 10,11,12,13,14
     variational bc:
       predictors: &predictors4
       - name: constant
