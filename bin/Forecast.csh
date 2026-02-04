@@ -192,6 +192,8 @@ if (${Microphysics} == 'mp_thompson' ) then
   ln -svf $MPThompsonTablesDir/* .
 endif
 
+ln -svf /glade/derecho/scratch/jjang/AirForce/OZONE/data/global_o3prdlos.f77  .  #BJJ: OPP
+
 ## link stream_list configs
 foreach staticfile ( \
 stream_list.${MPASCore}.surface \
