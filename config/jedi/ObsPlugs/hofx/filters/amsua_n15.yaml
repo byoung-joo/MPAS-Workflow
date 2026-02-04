@@ -3,3 +3,10 @@
     maxvalue: 0
 #  - filter: GOMsaver
 #    filename: {{OutDBDir}}/{{geoPrefix}}_amsua_n15.nc4
+# Passivate channels
+  - filter: Perform Action
+    filter variables:
+    - name: brightnessTemperature
+      channels: 10, 11, 12, 13, 14
+    action:
+      name: passivate

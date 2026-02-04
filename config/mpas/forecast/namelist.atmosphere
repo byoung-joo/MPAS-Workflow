@@ -80,8 +80,8 @@
     config_sfclayer_scheme     = 'sfcLayerScheme'
     config_lsm_scheme          = 'lsmScheme'
     config_microp_re           = true
-    config_o3climatology = false
-    config_o3prognostic = true
+    config_o3climatology = true
+    config_o3prognostic = false
 /
 &soundings
     config_sounding_interval = 'none'

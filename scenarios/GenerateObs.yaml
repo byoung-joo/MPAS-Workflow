@@ -18,7 +18,7 @@ hpc:
   CriticalPriority: economy
   NonCriticalPriority: economy
 workflow:
-  first cycle point: 20220606T00
-  final cycle point: 20220608T00
+  first cycle point: 20250401T00
+  final cycle point: 20250510T00
 
   max active cycle points: 60
