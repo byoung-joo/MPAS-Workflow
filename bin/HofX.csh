@@ -112,7 +112,16 @@ set bgFile = ${bg}/${BGFilePrefix}.$thisMPASFileDate.nc
 
 rm ${bgFile}${OrigFileSuffix} ${bgFile}
 ln -sfv ${bgFileOther} ${bgFile}${OrigFileSuffix}
-ln -sfv ${bgFileOther} ${bgFile}
+set output=`ncdump -h ${bgFile}${OrigFileSuffix} | grep " qo3(Time,"`
+if ( "${output}" == "" ) then
+  echo qo3 does not exists.
+  ln -sfv ${bgFileOther} ${bgFile}
+else #BJJ OPP
+  echo qo3 does exist.
+  cp ${bgFileOther} ${bgFile}
+  module load nco
+  ncap2 -A -s "o3vmr=qo3" ${bgFile}
+endif
 
 # use the background as the TemplateFieldsFileOuter
 ln -sfv ${bgFile} ${TemplateFieldsFileOuter}
@@ -148,7 +157,7 @@ rm *.nc*.lock
 
 # Remove unnecessary model state files
 # ====================================
-rm ${WorkDir}/${backgroundSubDir}/${BGFilePrefix}.$thisMPASFileDate.nc
+#rm ${WorkDir}/${backgroundSubDir}/${BGFilePrefix}.$thisMPASFileDate.nc
 
 # Remove obs-database output files
 # ================================

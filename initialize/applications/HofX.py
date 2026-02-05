@@ -70,6 +70,9 @@ class HofX(Component):
       #'iasi_metop-a',
       #'iasi_metop-b',
       #'iasi_metop-c',
+      #'omps_toz_npp',
+      #'omps_toz_n20',
+      #'omps_toz_n21',
     ], list],
 
     ## nObsIndent

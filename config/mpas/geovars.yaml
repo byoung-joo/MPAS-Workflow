@@ -126,6 +126,11 @@ fields:
 
   - field name: mole_fraction_of_ozone_in_air
     mpas template field: theta
+    mpas identity field: mole_fraction_of_ozone_in_air
+#    mpas io name: o3vmr
+#For OPP
+    mpas io name: o3vmr   #filled with qo3
+    mpas io scaling factor: 0.603461 # from MPAS unit [kg/kg] to generic unit [mol/mol]
 
   - field name: mole_fraction_of_carbon_dioxide_in_air
     mpas template field: theta

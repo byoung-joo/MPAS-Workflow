@@ -40,6 +40,7 @@ set StandardStateVariables = ( \
   smois \
   tslb \
   pressure_p \
+  mole_fraction_of_ozone_in_air \
 )
 
 set MPASJEDIVariablesFiles = (\

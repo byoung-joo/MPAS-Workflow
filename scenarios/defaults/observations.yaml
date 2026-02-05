@@ -332,6 +332,11 @@ observations:
           iasi_metop-b: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/iasi_thin145km
           iasi_metop-c: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/iasi_thin145km
 
+          ## omps
+          omps_toz_npp: /glade/derecho/scratch/bjung/stratosphere/ozone/obs_sample/data_nc_from_class2025/data_class.ioda
+          omps_toz_n20: /glade/derecho/scratch/bjung/stratosphere/ozone/obs_sample/data_nc_from_class2025/data_class.ioda
+          omps_toz_n21: /glade/derecho/scratch/bjung/stratosphere/ozone/obs_sample/data_nc_from_class2025/data_class.ioda
+
       IODASuperObGrid:
         abi_g16: 15X15
         ahi_himawari8: 15X15

@@ -1,0 +1,24 @@
+- obs space:
+    <<: *ObsSpace
+    name: omps_toz_n20
+    obsdatain:
+      engine:
+        type: H5File
+        obsfile: {{InDBDir}}/omps_toz_n20_obs_{{thisValidDate}}.h5
+    obsdataout:
+      engine:
+        type: H5File
+        obsfile: {{OutDBDir}}/{{obsPrefix}}_omps_toz_n20.h5
+    simulated variables:
+    - ozoneColumn
+  obs error: *ObsErrorDiagonal
+  obs operator:
+    name: ColumnRetrieval
+    nlayers_retrieval: 1
+    tracer variables: [mole_fraction_of_ozone_in_air]
+    isApriori: false
+    isAveragingKernel: false
+    totalNoVertice: true
+    stretchVertices: topbottom # options: top, bottom, topbottom, none
+    #model units coeff: 2.241398632746E-3
+
