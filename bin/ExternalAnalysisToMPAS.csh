@@ -98,6 +98,7 @@ ln -sfv ${ExternalAnalysesDir}/${externalanalyses__UngribPrefix}* ./
 ## link MPAS mesh graph info
 rm ./x${ArgRatio}.${ArgNCells}.graph.info*
 ln -sfv $GraphInfoDir/x${ArgRatio}.${ArgNCells}.graph.info* .
+echo $GraphInfoDir/x${ArgRatio}.${ArgNCells}.graph.info
 
 ## Link MPAS invariant field
 if ( $ArgType == "Outer" ) then
@@ -126,6 +127,13 @@ sed -i 's@startTime@'${thisMPASNamelistDate}'@' $NamelistFileInit
 sed -i 's@nCells@'${ArgNCells}'@' $NamelistFileInit
 sed -i 's@{{meshRatio}}@'${ArgRatio}'@' $NamelistFileInit
 sed -i 's@{{UngribPrefix}}@'${externalanalyses__UngribPrefix}'@' $NamelistFileInit
+
+# ERA5 adjustments
+if ( "${externalanalyses__UngribPrefix}" == "ERA5" ) then
+  sed -i "s@config_met_prefix = .*@config_met_prefix = 'ERA5'@g" $NamelistFileInit
+  sed -i "s@config_nfglevels = .*@config_nfglevels = 138@g" $NamelistFileInit
+  sed -i "s@config_use_spechumd = .*@config_use_spechumd = true@g" $NamelistFileInit
+endif
 
 # Run the executable
 # ==================

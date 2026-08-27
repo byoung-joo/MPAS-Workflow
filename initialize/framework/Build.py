@@ -174,6 +174,10 @@ class Build(Component):
     # Non-bundle applications
     # =======================
 
+    # ERA5 to intermediate file
+    self._set('era5_to_int', 'era5_to_int.py')
+    self._set('era5_to_intBuildDir', '/glade/campaign/mmm/parc/ivette/pandac/converters/era5_to_int')
+
     # Ungrib
     # ------
     self._set('ungribEXE', 'ungrib.exe')
@@ -181,8 +185,8 @@ class Build(Component):
 
     # Obs2IODA-v3
     # -----------
-    self._set('obs2iodaEXE', 'obs2ioda_v3')
-    self._set('obs2iodaBuildDir', '/glade/campaign/mmm/parc/ivette/pandac/codeBuild/obs2iodaV3/build/bin')
+    self._set('obs2iodaEXE', 'obs2ioda')
+    self._set('obs2iodaBuildDir', self['mpas bundle'] + '/bin')
 
     # Mean state calculator
     # ---------------------

@@ -80,7 +80,7 @@ foreach gdasfile ( *"gdas."* )
    if ( ${gdasfile} =~ *"cris"* && ${ccyy} >= '2021' ) then
      ln -sf ${CRTMTABLES}/cris-fsr431_npp.SpcCoeff.bin  ./cris_npp.SpcCoeff.bin
      ln -sf ${CRTMTABLES}/cris-fsr431_n20.SpcCoeff.bin  ./cris_n20.SpcCoeff.bin
-     #ln -sf ${CRTMTABLES}/cris-fsr431_n21.SpcCoeff.bin  ./cris_n21.SpcCoeff.bin
+     ln -sf ${CRTMTABLES}/cris-fsr431_n21.SpcCoeff.bin  ./cris_n21.SpcCoeff.bin
    else if ( ${gdasfile} =~ *"cris"* && ${ccyy} < '2021' ) then
      ln -sf ${CRTMTABLES}/cris399_npp.SpcCoeff.bin  ./cris_npp.SpcCoeff.bin
      ln -sf ${CRTMTABLES}/cris399_n20.SpcCoeff.bin  ./cris_n20.SpcCoeff.bin
@@ -101,7 +101,7 @@ foreach gdasfile ( *"gdas."* )
 
    if ( ${gdasfile} =~ *"mtiasi"* ) then
      #./${obs2iodaEXE} ${SPLIThourly} ${gdasfile} >&! $log
-     ./${obs2iodaEXE} ${gdasfile} >&! $log
+     ./${obs2iodaEXE} -e h5 ${gdasfile} >&! $log
    else if ( ${gdasfile} =~ *"prepbufr"* ) then
      # use obs errors embedded in prepbufr file
      if ( -e obs_errtable ) then
@@ -109,12 +109,12 @@ foreach gdasfile ( *"gdas."* )
      endif
      set inst = `echo "$gdasfile" | cut -d'.' -f1`
      # run obs2ioda for preburf with additional QC as in GSI
-     ./${obs2iodaEXE} ${gdasfile} >&! $log
+     ./${obs2iodaEXE} -e h5 ${gdasfile} >&! $log
      # for surface obs, run obs2ioda for prepbufr without additional QC
      mkdir -p sfc
      cd sfc
      ln -sfv ${obs2iodaBuildDir}/${obs2iodaEXE} ./
-     ./${obs2iodaEXE} ${noGSIQCFilters} ../${gdasfile} >&! ../logs/log-converter_sfc
+     ./${obs2iodaEXE} -e h5 ${noGSIQCFilters} ../${gdasfile} >&! ../logs/log-converter_sfc
      # replace surface obs file with file created without additional QC
      mv -f sfc_obs_${thisCycleDate}.h5 ../sfc_obs_${thisCycleDate}.h5
      cd ..
@@ -127,9 +127,9 @@ foreach gdasfile ( *"gdas."* )
        echo "ERROR: ${GDASObsErrtable} does NOT exist" > ./FAIL
        exit 1
      endif
-     ./${obs2iodaEXE} ${gdasfile} >&! $log
+     ./${obs2iodaEXE} -e h5 ${gdasfile} >&! $log
    else
-     ./${obs2iodaEXE} ${gdasfile} >&! $log
+     ./${obs2iodaEXE} -e h5 ${gdasfile} >&! $log
    endif
 
    # Check status
@@ -144,6 +144,30 @@ foreach gdasfile ( *"gdas."* )
   rm -rf $gdasfile
 
 end # gdasfile loop
+
+if ( "${convertToIODAObservations}" =~ *"cris"* ) then
+
+# Name update
+set NameUpdate = ( \
+    cris_npp \
+    cris_n20 \
+    cris_n21 \
+)
+
+foreach ty ( ${NameUpdate} )
+  echo 'begin NameUpdate' $ty
+  if ( -f ${ty}_obs_${thisValidDate}.h5 ) then
+    #if ( ${ty} =~ *"cris"* && ${ccyy} >= 2021 ) then
+    if ( ${ccyy} >= 2021 ) then
+       if ( ${ty} == "cris_npp" ) set tyy = "cris-fsr_npp"
+       if ( ${ty} == "cris_n20" ) set tyy = "cris-fsr_n20"
+       if ( ${ty} == "cris_n21" ) set tyy = "cris-fsr_n21"
+       mv -f ${ty}_obs_${thisValidDate}.h5 ${tyy}_obs_${thisValidDate}.h5
+    endif
+  endif
+  echo 'end of NameUpdate' $ty
+end
+endif
 
 date
 
