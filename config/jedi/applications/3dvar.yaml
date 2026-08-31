@@ -61,7 +61,7 @@ cost function:
           data directory: {{bumpCovVBalDir}}
           files prefix: {{bumpCovVBalPrefix}}
         drivers:
-          read local sampling: true
+          read global sampling: true
           read vertical balance: true
         vertical balance:
           vbal:

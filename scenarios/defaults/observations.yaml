@@ -224,10 +224,12 @@ observations:
       - iasi_metop-c
       - mhs_metop-a
       - mhs_metop-b
+      - mhs_metop-c
       - mhs_n18
       - mhs_n19
       - mhs-cld_metop-a
       - mhs-cld_metop-b
+      - mhs-cld_metop-c
       - mhs-cld_n18
       - mhs-cld_n19
       - atms_n20
@@ -256,6 +258,7 @@ observations:
         amsua-cld_aqua: amsua_aqua
         amsua-cld_metop-a: amsua_metop-a
         amsua-cld_metop-b: amsua_metop-b
+        amsua-cld_metop-c: amsua_metop-c
         amsua-cld_n15: amsua_n15
         amsua-cld_n18: amsua_n18
         amsua-cld_n19: amsua_n19
@@ -274,6 +277,7 @@ observations:
         amsua_n18_rttov12: amsua_n18
         mhs-cld_metop-a: mhs_metop-a
         mhs-cld_metop-b: mhs_metop-b
+        mhs-cld_metop-c: mhs_metop-c
         mhs-cld_n18: mhs_n18
         mhs-cld_n19: mhs_n19
         mhs_metop-a_rttov: mhs_metop-a
@@ -289,99 +293,108 @@ observations:
 
       IODADirectory:
         da:
+          #_BJ_OBS_DIR: &obsdir '/glade/campaign/mmm/parc/bjung/stratosphericModeling/V4/Observations'
+          _BJ_OBS_DIR: &obsdir '/glade/derecho/scratch/bjung/stratosphericDA/Observations'
           ##anchor
-          aircraft: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          gnssrobndropp1d: /glade/derecho/scratch/bjung/pandac/GenerateObs/Observations/da
-          gnssrobndnbam: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          gnssrobndmo: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          gnssrobndmo-nopseudo: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          gnssrorefncep: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          gnssrorefncep_tunedErrors: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          satwind: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          satwnd: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          sfc: /glade/derecho/scratch/bjung/pandac/GenerateObs/Observations/da
-          sondes: /glade/derecho/scratch/bjung/pandac/GenerateObs/Observations/da
+          aircraft: *obsdir
+          gnssrobndropp1d: *obsdir
+          gnssrobndnbam: *obsdir
+          gnssrobndmo: *obsdir
+          gnssrobndmo-nopseudo: *obsdir
+          gnssrorefncep: *obsdir
+          gnssrorefncep_tunedErrors: *obsdir
+          satwind: *obsdir
+          satwnd: *obsdir
+          sfc: *obsdir
+          sondes: *obsdir
 
           ## amsua
-          amsua_aqua: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          amsua_metop-a: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          amsua_metop-b: /glade/derecho/scratch/bjung/pandac/GenerateObs/Observations/da
-          amsua_n15: /glade/derecho/scratch/bjung/pandac/GenerateObs/Observations/da
-          amsua_n18: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          amsua_n19: /glade/derecho/scratch/bjung/pandac/GenerateObs/Observations/da
-          amsua-cld_aqua: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          amsua-cld_metop-a: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          amsua-cld_metop-b: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          amsua-cld_n15: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          amsua-cld_n18: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          amsua-cld_n19: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
+          amsua_aqua: *obsdir
+          amsua_metop-a: *obsdir
+          amsua_metop-b: *obsdir
+          amsua_metop-c: *obsdir
+          amsua_n15: *obsdir
+          amsua_n18: *obsdir
+          amsua_n19: *obsdir
+          amsua-cld_aqua: *obsdir
+          amsua-cld_metop-a: *obsdir
+          amsua-cld_metop-b: *obsdir
+          amsua-cld_metop-c: *obsdir
+          amsua-cld_n15: *obsdir
+          amsua-cld_n18: *obsdir
+          amsua-cld_n19: *obsdir
 
           ## mhs
-          mhs_metop-a: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/raw_obs
-          mhs_metop-b: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/raw_obs
-          mhs_n18: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/raw_obs
-          mhs_n19: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/raw_obs
-          mhs-cld_metop-a: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/raw_obs
-          mhs-cld_metop-b: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/raw_obs
-          mhs-cld_n18: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/raw_obs
-          mhs-cld_n19: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/raw_obs
-          mhs_metop-a_rttov: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/raw_obs
-          mhs_metop-b_rttov: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/raw_obs
-          mhs_n18_rttov: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/raw_obs
-          mhs_n19_rttov: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/raw_obs
-          mhs_n18_rttov12: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/raw_obs
+          mhs_metop-a: *obsdir
+          mhs_metop-b: *obsdir
+          mhs_metop-c: *obsdir
+          mhs_n18: *obsdir
+          mhs_n19: *obsdir
+          mhs-cld_metop-a: *obsdir
+          mhs-cld_metop-b: *obsdir
+          mhs-cld_metop-c: *obsdir
+          mhs-cld_n18: *obsdir
+          mhs-cld_n19: *obsdir
+          mhs_metop-a_rttov: *obsdir
+          mhs_metop-b_rttov: *obsdir
+          mhs_n18_rttov: *obsdir
+          mhs_n19_rttov: *obsdir
+          mhs_n18_rttov12: *obsdir
 
           ## atms
-          atms_n20: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          atms_npp: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
+          atms_n20: *obsdir
+          atms_npp: *obsdir
 
           ## abi
-          abi_g16: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/ABIASR/IODANC_THIN15KM_SUPEROB15X15_no-bias-correct
-          abi-clr_g16: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/ABIASR/IODANC_THIN15KM_SUPEROB15X15_no-bias-correct
+          abi_g16: *obsdir
+          abi-clr_g16: *obsdir
 
           ## ahi
-          ahi_himawari8: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/AHIASR/IODANC_SUPEROB15X15_no-bias-correct
-          ahi-clr_himawari8: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/AHIASR/IODANC_SUPEROB15X15_no-bias-correct
+          ahi_himawari8: *obsdir
+          ahi-clr_himawari8: *obsdir
 
           ## iasi
-          iasi_metop-a: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/iasi_thin145km
-          iasi_metop-b: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/iasi_thin145km
-          iasi_metop-a_rttov: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/iasi_thin145km
-          iasi_metop-b_rttov: /glade/derecho/scratch/liuz/pandac_common/obsiodav3_intScanP_20230927/2018/iasi_thin145km
+          iasi_metop-a: *obsdir
+          iasi_metop-b: *obsdir
+          iasi_metop-a_rttov: *obsdir
+          iasi_metop-b_rttov: *obsdir
 
         hofx:
           ## anchor
-          aircraft: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/conv_obs
-          gnssrobndropp1d: /glade/derecho/scratch/bjung/pandac/GenerateObs/Observations
-          gnssrobndnbam: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/conv_obs
-          gnssrobndmo: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/conv_obs
-          gnssrobndmo-nopseudo: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/conv_obs
-          gnssrorefncep: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/conv_obs
-          gnssrorefncep_tunedErrors: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/conv_obs
-          satwind: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/conv_obs
-          satwnd: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
-          sfc: /glade/derecho/scratch/bjung/pandac/GenerateObs/Observations
-          sondes: /glade/derecho/scratch/bjung/pandac/GenerateObs/Observations
+          aircraft: *obsdir
+          gnssrobndropp1d: *obsdir
+          gnssrobndnbam: *obsdir
+          gnssrobndmo: *obsdir
+          gnssrobndmo-nopseudo: *obsdir
+          gnssrorefncep: *obsdir
+          gnssrorefncep_tunedErrors: *obsdir
+          satwind: *obsdir
+          satwnd: *obsdir
+          sfc: *obsdir
+          sondes: *obsdir
 
           ## amsua
-          amsua_aqua: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/bias_corr
-          amsua_metop-a: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/bias_corr
-          amsua_metop-b: /glade/derecho/scratch/bjung/pandac/GenerateObs/Observations
-          amsua_n15: /glade/derecho/scratch/bjung/pandac/GenerateObs/Observations
-          amsua_n18: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/bias_corr
-          amsua_n19: /glade/derecho/scratch/bjung/pandac/GenerateObs/Observations
-          amsua-cld_aqua: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/bias_corr
-          amsua-cld_metop-a: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/bias_corr
-          amsua-cld_metop-b: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/bias_corr
-          amsua-cld_n15: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/bias_corr
-          amsua-cld_n18: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/bias_corr
-          amsua-cld_n19: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/bias_corr
+          amsua_aqua: *obsdir
+          amsua_metop-a: *obsdir
+          amsua_metop-b: *obsdir
+          amsua_metop-c: *obsdir
+          amsua_n15: *obsdir
+          amsua_n18: *obsdir
+          amsua_n19: *obsdir
+          amsua-cld_aqua: *obsdir
+          amsua-cld_metop-a: *obsdir
+          amsua-cld_metop-b: *obsdir
+          amsua-cld_metop-c: *obsdir
+          amsua-cld_n15: *obsdir
+          amsua-cld_n18: *obsdir
+          amsua-cld_n19: *obsdir
 
           ## mhs
-          mhs_metop-a: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/bias_corr
-          mhs_metop-b: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/bias_corr
-          mhs_n18: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/bias_corr
-          mhs_n19: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/bias_corr
+          mhs_metop-a: *obsdir
+          mhs_metop-b: *obsdir
+          mhs_metop-c: *obsdir
+          mhs_n18: *obsdir
+          mhs_n19: *obsdir
 
           ## atms
           atms_n20: /glade/campaign/mmm/parc/jban/pandac/obsiodav3_intScanP_20230927/2018/raw_obs
