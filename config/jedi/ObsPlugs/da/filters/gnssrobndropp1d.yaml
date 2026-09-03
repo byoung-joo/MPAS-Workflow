@@ -2,7 +2,7 @@
   - filter: Domain Check
     where:
     - variable:
-        name: MetaData/height
+        name: MetaData/impactHeightRO  #MetaData/height
       minvalue: 0.0
       maxvalue: 55000.1 #50000.0 #30000.0
     - variable:
