@@ -190,13 +190,13 @@
     maxvalue: 1.0e-12
     action:
       name: reject
-# Passivate channels
-  - filter: Perform Action
-    filter variables:
-    - name: brightnessTemperature
-      channels: 10, 11, 12, 13, 14
-    action:
-      name: passivate
+## Passivate channels
+#  - filter: Perform Action
+#    filter variables:
+#    - name: brightnessTemperature
+#      channels: 10, 11, 12, 13, 14
+#    action:
+#      name: passivate
 #  Useflag check #amsua-n15
   - filter: Bounds Check
     filter variables:
@@ -208,8 +208,8 @@
       options:
         channels: *amsua_n15_channels
         use_flag: [-1, -1, -1, -1,  1,
-                   -1,  1,  1,  1, -1,
-                   -1, -1, -1, -1, -1 ]
+                   -1,  1,  1,  1,  1,
+                   -1,  1,  1, -1, -1 ]
     minvalue: 1.0e-12
     action:
       name: reject
