@@ -4,7 +4,7 @@ experiment:
 build:
   mpas bundle: /glade/campaign/mmm/parc/bjung/stratosphericModeling/V4/code/mpas-bundle.4.0.1/build_single/
   bundle compiler used: gnu-openmpi
-  forecast directory: /glade/campaign/mmm/parc/bjung/stratosphericModeling/V4/code/MPAS-Model.8.3.1_ozone_high_top_mods/
+  forecast directory: /glade/campaign/mmm/parc/bjung/stratosphericModeling/V4/code/MPAS-Model.8.3.1_ozone_o3vmr_high_diag/
 
 externalanalyses:
   resource: "GFS.PANDAC"

@@ -4,7 +4,7 @@
     - variable:
         name: MetaData/height
       minvalue: 0.0
-      maxvalue: 50000.0 #30000.0
+      maxvalue: 55000.1 #50000.0 #30000.0
     - variable:
         name: MetaData/earthRadiusCurvature
       minvalue: 6250000.0
@@ -16,12 +16,52 @@
   - filter: Perform Action
     where:
     - variable:
-        name: MetaData/height
+        name: MetaData/impactHeightRO  #MetaData/height
       minvalue: 30000.0
       min_exclusive: true
-      maxvalue: 50000.0
+      maxvalue: 55000.1
     action:
       name: passivate   # for monitoring
+#-----
+# FROM https://github.com/NOAA-EMC/GDASApp/blob/develop/parm/jcb-gdas/observations/atmosphere/gnssro.yaml.j2#L90
+#  #1. gpstop
+#  - filter: Domain Check
+#    filter variables:
+#    - name: bendingAngle
+#    where:
+#    - variable:
+#        name: MetaData/impactHeightRO
+#      minvalue: 0
+#      maxvalue: 55000.1
+#    action:
+#      name: reject
+#  #2. commgpstop
+#  - filter: Bounds Check
+#    filter variables:
+#    - name: bendingAngle
+#    where:
+#    - variable:
+#        name: MetaData/satelliteIdentifier
+#      is_in: 265,266,267,268,269
+#    test variables:
+#    - name: MetaData/impactHeightRO
+#    maxvalue: 45000.1
+#    action:
+#      name: reject
+#  #3. metop below 8 km  #--BJJ Seems to be removed recently in GSI
+#  - filter: Bounds Check
+#    filter variables:
+#    - name: bendingAngle
+#    where:
+#    - variable:
+#        name: MetaData/satelliteIdentifier
+#      is_in: 3-5
+#    test variables:
+#    - name: MetaData/impactHeightRO
+#    minvalue: 8000.1
+#    action:
+#      name: reject
+#-----
   - filter: ROobserror
     filter variables:
     - name: bendingAngle
