@@ -151,7 +151,7 @@ verifymodel:
 workflow:
   first cycle point: 20250331T18
   #restart cycle point: 20180503T18
-  final cycle point: 20250401T00
+  final cycle point: 20250408T00
 
 hpc:
   CriticalAccount: nmmm0015
