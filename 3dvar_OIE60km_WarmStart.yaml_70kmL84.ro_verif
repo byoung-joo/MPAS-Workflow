@@ -85,6 +85,7 @@ observations:
   initialVARBCcoeff: "/glade/derecho/scratch/bjung/stratosphericDA/Observations/satbias2025spring"
 
 variational:
+  execute: False
   DAType: 3dvar
   biasCorrection: True
   nInnerIterations: [60,60,]
