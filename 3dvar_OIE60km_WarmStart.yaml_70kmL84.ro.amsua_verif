@@ -144,6 +144,7 @@ variational:
           baseSeconds: 600
 
 verifymodel:
+  script directory: /glade/campaign/mmm/parc/bjung/stratosphericModeling/V4/code/mpas-bundle.4.0.1/mpas-jedi/graphics
   job:
     60kmL84: #Copied from 120km, Revise this!
       seconds: 600
